@@ -115,7 +115,7 @@ for i in $indexarray
 do
 sbatch --time $timearg --mem $memarg --tmp $temparg --job-name cv_job_${i} --output ${setwd}/temp/sbatch_logs/cv_job_${i}.out --error ${setwd}/temp/sbatch_logs/cv_job_${i}.err ${setwd}cv_partition_sgspca.sh --setwd $setwd --index $i --npc $npc --nfolds $nfolds --kernel $kernel --niter $niter --trace $trace
 echo "Submitted Job: $i"
-sleep 0.25
+sleep 1
 done
 
 exit 0
