@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A feczk001
+#SBATCH -A guanwh
 #SBATCH --time=1:00:00
 #SBATCH --ntasks=1
 #SBATCH --mem=32g
