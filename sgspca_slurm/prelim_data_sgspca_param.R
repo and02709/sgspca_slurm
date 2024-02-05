@@ -51,20 +51,25 @@ cat("data successfully loaded \n")
 
 unique.groups <- unique(groups)
 num.group <- length(unique.groups)
+cat("number of unique groups determined \n")
 if(sum((nonzero.groups-floor(nonzero.groups))==0) != length(nonzero.groups)) stop("Must specify integer groups")
 if(min(nonzero.groups) < 1) stop("Must specify minimum number of nonzero groups as at least 1")
 if(max(nonzero.groups) > num.group) stop("Cannot have more nonzero groups than total number of groups")
 
 if(min(alpha < 0)) stop("Must have non-negative alpha values")
 if(max(alpha >= 1)) stop("Must have alpha values less than 1")
+cat("QC successfully performed \n")
 
+cat("indicator names \n")
 rownames(X) <- c(1:n)
 rownames(Y) <- c(1:n)
 ind.names <- rownames(X)
+cat("successfully determined indicator names \n")
 
 if(kernel!="linear" && kernel!="delta") stop("Please select a valid kernel")
 df <- data.frame(Y,X)
 num.nz.gr <- length(nonzero.groups)
+cat("data frame created \n")
 if(kernel=="delta" && balance){
   df.partition <- groupdata2::fold(data=df,k=nfolds,cat_col = "y")
 } else{
